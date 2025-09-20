@@ -3,14 +3,17 @@ name: LeetCode Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 * * *" # Läuft jeden Tag um 8 Uhr UTC
+    - cron: "0 8 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Sync
-        uses: jasonlovesdog/leetcode-sync@v1.5.0 # <- Dies ist die geänderte Zeile
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Sync LeetCode solutions
+        uses: jasonlovesdog/leetcode-sync@v1.5.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
