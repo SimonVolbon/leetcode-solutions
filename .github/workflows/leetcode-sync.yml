@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync
-        uses: s-kris/leetcode-sync@v2.4
+        uses: jasonlovesdog/leetcode-sync@v1.5.0 # <- Dies ist die geänderte Zeile
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
