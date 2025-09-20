@@ -1,14 +1,19 @@
 name: LeetCode Sync
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
   schedule:
-    - cron: "0 8 * * *" # Läuft jeden Tag um 8 Uhr UTC
+    - cron: "0 8 * * *" 
+
+# <<< WICHTIG >>>
+permissions:
+  contents: write 
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     steps:
+     
       - name: Checkout repository
         uses: actions/checkout@v3
 
